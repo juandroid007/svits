@@ -6,9 +6,10 @@
   by
   <a
     href="https://github.com/juandroid007"
-          class="ml-2 text-blue-600 hover:underline"
-          target="_blank"
-          >juandroid007</a
-        >
+    rel="noopener"
+    class="ml-2 text-blue-600 hover:underline"
+    target="_blank"
+    >juandroid007</a
+  >
   </p>
 </footer>
