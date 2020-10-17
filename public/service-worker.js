@@ -29,13 +29,13 @@ const filesToPreCache = [
   'file'
 ]
 
-console.log(`[Service Worker] Origin: ${self.location.origin}`)
+console.info(`[Service Worker] Origin: ${self.location.origin}`)
 
 self.addEventListener('install', (event) => {
   console.log('[Service Worker] Install')
   event.waitUntil(
     caches.open(cacheName).then((cache) => {
-      console.log(`[Service Worker] Creating cache: ${cacheName}`)
+      console.info(`[Service Worker] Creating cache: ${cacheName}`)
       return cache.addAll(filesToPreCache)
     }).then(() => {
       self.skipWaiting()
@@ -44,13 +44,13 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activate')
+  console.info('[Service Worker] Activate')
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((thisCacheName) => {
           if (thisCacheName !== cacheName) {
-            console.log(`[Service Worker] Deleting: ${thisCacheName}`)
+            console.info(`[Service Worker] Deleting: ${thisCacheName}`)
             return caches.delete(thisCacheName)
           }
         })
@@ -74,7 +74,7 @@ const update = (event, cache) => {
 
 const cacheFirst = {
   method: (event, cache) => {
-    console.log(`[Service Worker] Cache first: ${event.request.url}`)
+    console.info(`[Service Worker] Cache first: ${event.request.url}`)
     const fun = update(event, cache)
     return cache || fun
   },
@@ -83,7 +83,7 @@ const cacheFirst = {
 
 const cacheOnly = {
   method: (event, cache) => {
-    console.log(`[Service Worker] Cache only: ${event.request.url}`)
+    console.info(`[Service Worker] Cache only: ${event.request.url}`)
     return cache || update(event, cache)
   },
   regexes: regexesCacheOnly,
@@ -91,7 +91,7 @@ const cacheOnly = {
 
 const onlineFirst = {
   method: (event, cache) => {
-    console.log(`[Service Worker] Online first: ${event.request.url}`)
+    console.info(`[Service Worker] Online first: ${event.request.url}`)
     return update(event, cache)
   },
   regexes: regexesOnlineFirst,
@@ -99,7 +99,7 @@ const onlineFirst = {
 
 const onlineOnly = {
   method: (event) => {
-    console.log(`[Service Worker] Online only: ${event.request.url}`)
+    console.info(`[Service Worker] Online only: ${event.request.url}`)
     return fetch(event.request)
   },
   regexes: regexesOnlineOnly,
