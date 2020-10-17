@@ -9,8 +9,6 @@
   export let type = undefined
   export let label
 
-  export let color = 'blue'
-
   export let big = false
   export let active = false
   export let disabled = false
@@ -61,15 +59,15 @@
     disabledClasses = 'opacity-50 cursor-wait '
 
     if (primary) {
-      colorClasses = `text-white bg-${color}-600`
-      hoverClasses += `hover:bg-${color}-500`
-      focusClasses += `focus-not-active:bg-${color}-500`
-      activeClasses += `active:bg-${color}-600 active:border-${color}-500`
-      activatedClasses += `bg-${color}-600 border-${color}-500`
+      colorClasses = `text-white bg-blue-600`
+      hoverClasses += `hover:bg-blue-500`
+      focusClasses += `focus-not-active:bg-blue-500`
+      activeClasses += `active:bg-blue-600 active:border-blue-500`
+      activatedClasses += `bg-blue-600 border-blue-500`
     } else if (secondary) {
       colorClasses = `
-                text-${color}-600 bg-gray-100
-                dark:text-${color}-500 dark:bg-gray-900
+                text-blue-600 bg-gray-100
+                dark:text-blue-500 dark:bg-gray-900
             `
       hoverClasses += `
                 hover:bg-gray-50
@@ -115,11 +113,11 @@
       activeClasses += `active:bg-red-100`
       activatedClasses += `bg-red-100`
     } else if (white) {
-      colorClasses = `text-${color}-600 bg-white`
-      hoverClasses += `hover:text-${color}-500`
-      focusClasses += `focus-not-active:text-${color}-500`
-      activeClasses += `active:text-${color}-600`
-      activatedClasses += `text-${color}-600`
+      colorClasses = `text-blue-600 bg-white`
+      hoverClasses += `hover:text-blue-500`
+      focusClasses += `focus-not-active:text-blue-500`
+      activeClasses += `active:text-blue-600`
+      activatedClasses += `text-blue-600`
     }
   }
 
