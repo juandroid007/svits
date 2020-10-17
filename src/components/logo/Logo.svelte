@@ -5,9 +5,16 @@
   import { expand } from './expand'
   import { inner, outer } from './shape'
   import { preferences } from '../../stores/preferences'
+
+  import Title from './Title.svelte'
+
   $: dark = $preferences.darkMode
+
+  export let width = '246px'
   export let visible
   export let animate
+  export let title = true
+
   onMount(() => {
     visible = true
   })
@@ -17,8 +24,6 @@
   .logo {
     margin: auto;
     position: relative;
-    width: 246px;
-    height: 320px;
   }
 
   svg {
@@ -42,13 +47,10 @@
   }
 
   .centered {
-    font-size: 5rem;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    letter-spacing: 0.12em;
-    font-weight: 400;
   }
 
   .centered span {
@@ -56,7 +58,7 @@
   }
 </style>
 
-<div class="logo">
+<div class="logo" style="width: {width}">
   {#if visible}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103 124">
       <!--g out:fade={{duration: 200}} opacity={dark ? 1 : 0.8}-->
@@ -89,20 +91,10 @@
       </g>
     </svg>
 
-    <!--div class="centered" out:fly={{y: -20, duration: 800}}-->
-    <div class="centered">
-      {#each 'SVITS' as char, i}
-        {#if animate}
-          <span
-            class="text-gray-800 dark:text-white duration-200 bg-blue"
-            in:fade={{delay: 1000 + i * 150, duration: 800}}
-          >{char}</span>
-        {:else}
-          <span
-            class="text-gray-800 dark:text-white duration-200 bg-blue"
-          >{char}</span>
-        {/if}
-      {/each}
-    </div>
+    {#if title}
+      <div class="centered">
+        <Title animate={animate} delay={1000} />
+      </div>
+    {/if }
   {/if}
 </div>

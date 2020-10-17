@@ -1,4 +1,5 @@
 import './index.css'
+import './nprogress.css'
 import App from './App.svelte'
 import wf from 'webfontloader'
 

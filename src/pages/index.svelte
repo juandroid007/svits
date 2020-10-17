@@ -4,6 +4,7 @@
   import { preferences } from '../stores/preferences'
   import Button from '../components/Button.svelte'
   import Logo from '../components/logo/Logo.svelte'
+  import Title from '../components/logo/Title.svelte'
 
   import { fly } from 'svelte/transition'
 
@@ -15,11 +16,14 @@
   <title>Svits - A nice SPA stack</title>
 </svelte:head>
 
-<div class="container flex flex-col items-center min-h-screen p-6 md:px-16 md:flex-row">
-  <div class="mb-6 md:w-1/2 md:mb-0">
-    <Logo animate/>
+<div class="flex flex-col items-center min-h-screen p-6 md:px-16 md:flex-row">
+  <div class="md:w-1/2 md:mb-0">
+    <Logo title={false} animate delay={100} />
   </div>
   <div class="flex flex-col w-full md:w-1/2" in:fly={{duration: 500, y: -20}}>
+    <div class="text-center md:text-left">
+      <Title animate />
+    </div>
     <p class="mb-4 text-justify">{meta.description}</p>
     <a class="mb-6 text-blue-600 hover:underline" href="/features">Cool features -&gt</a>
 

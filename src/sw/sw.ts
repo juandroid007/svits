@@ -8,7 +8,7 @@ if ('serviceWorker' in navigator) {
                     const worker = registration.installing
                     worker.addEventListener('statechange', () => {
                         if (worker.state === 'installed' && navigator.serviceWorker.controller) {
-                            console.log('[Service Worker] Update found')
+                            console.info('[Service Worker] Update found')
                             updateAvailable.set(true)
                         }
                     })
