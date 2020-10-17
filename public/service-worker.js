@@ -12,6 +12,7 @@ const regexesOnlineOnly = [
 const regexesCacheFirst = [
   self.location.origin,
   'https://fonts.googleapis.com/',
+  'https://ajax.googleapis.com/',
   'cdn',
 ]
 
