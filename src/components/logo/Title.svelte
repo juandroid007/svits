@@ -6,6 +6,7 @@
   export let visible
   export let animate
   export let delay = 0
+  export let small
 
   onMount(() => {
     visible = true
@@ -25,6 +26,10 @@
     font-weight: 400;
   }
 
+  .small {
+    font-size: 4rem;
+  }
+
   .title span {
     will-change: filter;
   }
@@ -32,7 +37,7 @@
 
 {#if visible}
   <!--div class="centered" out:fly={{y: -20, duration: 800}}-->
-  <h1 class="title">
+  <h1 class="title" class:small>
     {#each text as char, i}
       {#if animate}
         <span

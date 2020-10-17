@@ -41,7 +41,7 @@
 
   <div class="layout" in:fly={{duration: 500, y: -20}}>
     <div class="mb-6 border-b border-gray-500 border-dashed">
-      <Title text={title} animate />
+      <Title text={title} animate small />
     </div>
     <slot />
   </div>
