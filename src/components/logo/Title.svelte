@@ -42,7 +42,7 @@
       {#if animate}
         <span
           class="text-gray-800 uppercase dark:text-white duration-200 bg-blue"
-          in:fade={{delay: delay + i * 150, duration: 800}}
+          in:fade={{delay: delay + i * (800 / text.length), duration: 800}}
         >{char}</span>
       {:else}
         <span

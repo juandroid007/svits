@@ -32,8 +32,8 @@
   <title>Svits - {title}</title>
 </svelte:head>
 
-<div class="container p-6 md:px-16">
-  <div class="flex flex-col items-center w-full mb-6">
+<div class="w-full py-6">
+  <div class="flex flex-col items-center mb-6">
     <a in:fly={{duration: 500, y: -20}} href="/" title="Go to home">
       <Logo width='128px'/>
     </a>

@@ -16,29 +16,31 @@
   <title>Svits - A nice SPA stack</title>
 </svelte:head>
 
-<div class="flex flex-col items-center min-h-screen p-6 md:px-16 md:flex-row">
-  <div class="md:w-1/2 md:mb-0">
-    <Logo title={false} animate delay={100} />
-  </div>
-  <div class="flex flex-col w-full md:w-1/2" in:fly={{duration: 500, y: -20}}>
-    <div class="text-center md:text-left">
-      <Title animate />
+<div class="flex flex-col flex-grow">
+  <div class="flex flex-col items-center py-6 my-auto -m-4 md:flex-row">
+    <div class="m-4 md:w-1/2">
+      <Logo title={false} animate delay={100} />
     </div>
-    <p class="mb-4 text-justify">{meta.description}</p>
-    <a class="mb-6 text-blue-600 hover:underline" href="/features">Cool features -&gt</a>
+    <div class="w-full m-4" in:fly={{duration: 500, y: -20}}>
+      <div class="text-center md:text-left">
+        <Title animate />
+      </div>
+      <p class="mb-4 text-justify">{meta.description}</p>
+      <a class="text-blue-600 hover:underline" href="/features">View cool features -&gt</a>
 
-    <div class="flex -m-2">
-      <Button
-        class="w-1/2 m-2 font-bold text-center"
-        href="https://github.com/juandroid007/svits"
-        >Source code</Button
-      >
-      <Button
-        secondary
-        on:click={() => $preferences.darkMode = !$preferences.darkMode}
-        class="w-1/2 m-2 font-bold"
-        >Set {dark ? 'light' : 'dark'} theme</Button
-      >
+      <div class="flex mt-4 -m-2">
+        <Button
+          class="w-1/2 m-2 font-bold text-center"
+          href="https://github.com/juandroid007/svits"
+          >Get started</Button
+        >
+        <Button
+          secondary
+          on:click={() => $preferences.darkMode = !$preferences.darkMode}
+          class="w-1/2 m-2 font-bold"
+          >Set {dark ? 'light' : 'dark'} theme</Button
+        >
+      </div>
     </div>
   </div>
 </div>
