@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte'
-  import Bg from '../components/DotsBg.svelte'
+  import { onMount } from 'svelte'
   import { url } from '@roxi/routify/runtime'
   import { fly } from 'svelte/transition'
   let visible = false
   onMount(() => {
     setTimeout(() => visible = true, 100)
   })
-  onDestroy(() => visible = false)
 </script>
 
 <style>
@@ -24,10 +22,14 @@
   }
 </style>
 
-<Bg>
+<svelte:head>
+  <title>Svits - 404</title>
+</svelte:head>
+
+<div class="relative h-screen">
   <div class="overflow-hidden e404">
     {#if visible}
-      <div class="huge" transition:fly={{y: -20, duration: 800}}>404</div>
+      <div class="huge" in:fly={{y: -20, duration: 800}}>404</div>
     {/if}
     <div class="flex flex-col items-center big">
       Page not found.
@@ -35,4 +37,4 @@
       <a class="text-blue-600 hover:underline" href={$url('/')}>Go to home -&gt</a>
     </div>
   </div>
-</Bg>
+</div>

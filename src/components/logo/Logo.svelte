@@ -7,6 +7,7 @@
   import { preferences } from '../../stores/preferences'
   $: dark = $preferences.darkMode
   export let visible
+  export let animate
   onMount(() => {
     visible = true
   })
@@ -60,27 +61,47 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103 124">
       <!--g out:fade={{duration: 200}} opacity={dark ? 1 : 0.8}-->
       <g opacity={dark ? 1 : 0.8}>
-      <path
-        class:dark
-        in:expand={{duration: 400, delay: 1000, easing: quintOut}}
-        style="stroke: #1c63f2; fill: #1c63f2; stroke-width: 50;"
-        d={outer}
-        />
-      <path
-        class:dark
-        in:draw={{duration: 1000}}
-        style="stroke: #1c63f2; stroke-width: 1.8"
-        d={inner}
-        />
+        {#if animate}
+          <path
+            class:dark
+            in:expand={{duration: 400, delay: 1000, easing: quintOut}}
+            style="stroke: #1c63f2; fill: #1c63f2; stroke-width: 50;"
+            d={outer}
+            />
+          <path
+            class:dark
+            in:draw={{duration: 1000}}
+            style="stroke: #1c63f2; stroke-width: 1.8"
+            d={inner}
+            />
+        {:else}
+          <path
+            class:dark
+            style="stroke: #1c63f2; fill: #1c63f2; stroke-width: 50;"
+            d={outer}
+            />
+          <path
+            class:dark
+            style="stroke: #1c63f2; stroke-width: 1.8"
+            d={inner}
+            />
+        {/if}
       </g>
     </svg>
 
     <!--div class="centered" out:fly={{y: -20, duration: 800}}-->
     <div class="centered">
       {#each 'SVITS' as char, i}
-        <span class="text-gray-800 dark:text-white duration-200 bg-blue"
-          in:fade={{delay: 1000 + i * 150, duration: 800}}
+        {#if animate}
+          <span
+            class="text-gray-800 dark:text-white duration-200 bg-blue"
+            in:fade={{delay: 1000 + i * 150, duration: 800}}
           >{char}</span>
+        {:else}
+          <span
+            class="text-gray-800 dark:text-white duration-200 bg-blue"
+          >{char}</span>
+        {/if}
       {/each}
     </div>
   {/if}

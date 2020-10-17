@@ -4,41 +4,37 @@
   import { preferences } from '../stores/preferences'
   import Button from '../components/Button.svelte'
   import Logo from '../components/logo/Logo.svelte'
-  import Bg from '../components/DotsBg.svelte'
+
+  import { fly } from 'svelte/transition'
 
   let dark
   $: dark = $preferences.darkMode
-  let visible
 </script>
 
 <svelte:head>
   <title>Svits - A nice SPA stack</title>
 </svelte:head>
 
-<Bg>
-  <div class="container z-50 flex flex-col items-center w-full h-screen p-6 md:px-16 md:flex-row">
-    <div class="mb-6 md:w-1/2 md:mb-0">
-      <Logo bind:visible/>
-    </div>
-    <div class="flex flex-col w-full md:w-1/2">
-      <p class="mb-4 text-justify">{meta.description}</p>
-      <a class="mb-6 text-blue-600 hover:underline" href="/features">Cool features -&gt</a>
+<div class="container flex flex-col items-center min-h-screen p-6 md:px-16 md:flex-row">
+  <div class="mb-6 md:w-1/2 md:mb-0">
+    <Logo animate/>
+  </div>
+  <div class="flex flex-col w-full md:w-1/2" in:fly={{duration: 500, y: -20}}>
+    <p class="mb-4 text-justify">{meta.description}</p>
+    <a class="mb-6 text-blue-600 hover:underline" href="/features">Cool features -&gt</a>
 
-      <div class="flex -m-2">
-        <Button
-          big
-          class="w-1/2 m-2 font-bold"
-          href="https://github.com/juandroid007/svits"
-          >Source code</Button
-        >
-        <Button
-          big
-          secondary
-          on:click={() => $preferences.darkMode = !$preferences.darkMode}
-          class="w-1/2 m-2 font-bold"
-          >Set {dark ? 'light' : 'dark'} theme</Button
-        >
-      </div>
+    <div class="flex -m-2">
+      <Button
+        class="w-1/2 m-2 font-bold text-center"
+        href="https://github.com/juandroid007/svits"
+        >Source code</Button
+      >
+      <Button
+        secondary
+        on:click={() => $preferences.darkMode = !$preferences.darkMode}
+        class="w-1/2 m-2 font-bold"
+        >Set {dark ? 'light' : 'dark'} theme</Button
+      >
     </div>
   </div>
-</Bg>
+</div>

@@ -67,15 +67,15 @@
     } else if (secondary) {
       colorClasses = `
                 text-blue-600 bg-gray-100
-                dark:text-blue-500 dark:bg-gray-900
+                dark:text-blue-500 dark:bg-gray-800
             `
       hoverClasses += `
                 hover:bg-gray-50
-                dark:hover:bg-gray-800
+                dark:hover:bg-gray-700
             `
       focusClasses += `
                 focus-not-active:bg-gray-50
-                dark:focus-not-active:bg-gray-800
+                dark:focus-not-active:bg-gray-700
             `
       activeClasses += `
                 active:bg-gray-100 active:border-gray-50

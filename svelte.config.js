@@ -7,7 +7,7 @@ module.exports = {
     typescript(),
     postcss(),
     mdsvex({
-      layout: path.join(__dirname, 'src', 'layouts', 'MdsvexLayout.svelte'),
+      layout: path.join(__dirname, 'src', 'layouts', 'MarkdownLayout.svelte'),
     }),
   ],
 };

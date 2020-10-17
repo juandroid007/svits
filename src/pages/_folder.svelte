@@ -1,4 +1,5 @@
 <script lang="ts">
+  import DotsBg from '../components/DotsBg.svelte'
   import meta from '../meta.json'
 </script>
 
@@ -6,6 +7,8 @@
   <meta name="description" content={meta.description}>
 </svelte:head>
 
-<main>
-  <slot/>
-</main>
+<DotsBg>
+  <main>
+    <slot/>
+  </main>
+</DotsBg>
