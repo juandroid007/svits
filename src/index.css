@@ -1,0 +1,12 @@
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+html {
+	@apply duration-200;
+	@apply transition-colors;
+}
+
+html.dark {
+	background: #222;
+}

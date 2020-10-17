@@ -1,6 +1,43 @@
 .vscode
 .idea
 node_modules
-dist
-dist-ssr
+
+# ---
+# Local
+# ---
+
+*.local
+
+# ---
+# Mac OS
+# ---
+
+.DS_Store
+* 2*
+
+# ---
+# Node
+# ---
+
+node_modules
+
+# ---
+# Vercel
+# ---
+
+.vercel
+
+# ---
+# Production
+# ---
+
+dist/
+dist-ssr/
+public/**/*.webp
 .routify
+
+# ---
+# Yarn
+# ---
+
+yarn-error.log

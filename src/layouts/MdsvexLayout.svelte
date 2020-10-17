@@ -17,5 +17,4 @@
   <div class="mdsvex-layout-slot">
     <slot />
   </div>
-
 </div>
