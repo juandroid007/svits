@@ -16,7 +16,7 @@
   <title>Svits - A nice SPA stack</title>
 </svelte:head>
 
-<div class="flex flex-col flex-grow">
+<div class="flex flex-col flex-grow px-4">
   <div class="flex flex-col items-center py-6 my-auto -m-4 md:flex-row">
     <div class="m-4 md:w-1/2">
       <Logo title={false} animate delay={100} />
