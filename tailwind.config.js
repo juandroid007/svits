@@ -43,6 +43,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      screens: {
+        'xxl': {'min': '1480px'}
+      },
       fontFamily: {
         sans: [
           'Inconsolata',

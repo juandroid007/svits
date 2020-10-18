@@ -8,7 +8,7 @@
     <div class="relative h-full mx-auto text-gray-300 max-w-screen-xl dark:text-gray-600">
       <svg
         transition:fly={{x: -150, y: 150, duration: 1000, opacity: 1, easing: quintInOut}}
-        class="absolute right-full transform translate-y-1/4 translate-x-1/10 md:translate-x-1/4"
+        class="absolute right-full transform translate-y-1/4 translate-x-1/10 md:translate-x-1/4 xxl:translate-x-2/10"
         width="404"
         height="784"
         fill="none"
@@ -23,7 +23,7 @@
       </svg>
       <svg
         transition:fly={{x: 150, y: -150, duration: 1000, opacity: 1, easing: quintInOut}}
-        class="absolute left-full transform -translate-y-3/4 -translate-x-1/10 md:-translate-x-1/4"
+        class="absolute left-full transform -translate-y-3/4 -translate-x-1/10 md:-translate-x-1/4 xxl:-translate-x-2/10"
         width="404"
         height="784"
         fill="none"
@@ -47,6 +47,12 @@
 
 <style>
   @screen md {
+    .size {
+      width: 70%;
+    }
+  }
+
+  @screen xxl {
     .size {
       width: 65%;
     }
