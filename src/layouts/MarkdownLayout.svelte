@@ -1,3 +1,8 @@
+<script context="module">
+  import img from '../components/ImageCaption.svelte'
+  export { img }
+</script>
+
 <script>
   import { fly } from 'svelte/transition'
   import Logo from '../components/logo/Logo.svelte'
@@ -20,11 +25,35 @@
   :global(.layout h1) {
     font-size: 2.5rem;
   }
+
   :global(.layout h2) {
     font-size: 2rem;
   }
+
   :global(.layout h3) {
     font-size: 1.5rem;
+  }
+
+  :global(.layout a) {
+    @apply text-blue-600;
+  }
+
+  :global(.layout a:hover) {
+    text-decoration: underline;
+  }
+
+  :global(.layout ul) {
+    @apply list-disc;
+    @apply pl-4;
+  }
+
+  :global(.layout li) {
+    @apply list-disc;
+    @apply my-2;
+  }
+
+  :global(.layout pre) {
+    @apply rounded-xl;
   }
 </style>
 

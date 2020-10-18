@@ -45,6 +45,10 @@ module.exports = {
           'Inconsolata',
           ...defaultTheme.fontFamily.mono,
         ],
+        mono: [
+          'Inconsolata',
+          ...defaultTheme.fontFamily.mono,
+        ],
       },
       scale: {
         'invert': '-1',

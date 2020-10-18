@@ -7462,6 +7462,11 @@ pretty-hrtime@^1.0.0, pretty-hrtime@^1.0.3:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
+prismjs-tomorrow-theme@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/prismjs-tomorrow-theme/-/prismjs-tomorrow-theme-0.0.1.tgz#ed587789c65109b0cfce536028007f1451417128"
+  integrity sha1-7Vh3icZRCbDPzlNgKAB/FFFBcSg=
+
 prismjs@^1.17.1:
   version "1.22.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.22.0.tgz#73c3400afc58a823dd7eed023f8e1ce9fd8977fa"

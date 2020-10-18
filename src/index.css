@@ -10,3 +10,11 @@ html {
 html.dark {
 	background: #222;
 }
+
+pre, code {
+	@apply text-gray-700;
+}
+
+.dark pre, .dark code {
+	@apply text-gray-400;
+}
