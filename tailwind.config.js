@@ -24,6 +24,9 @@ module.exports = {
       './src/**/*.ts',
       './src/**/*.tsx',
       './src/**/*.vue',
+      './src/**/*.md',
+      './src/**/*.svx',
+      './src/**/*.svexy',
     ],
   },
   future: {
