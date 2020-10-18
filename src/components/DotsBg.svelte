@@ -39,8 +39,16 @@
     </div>
   </div>
   <div class="relative flex items-center h-full">
-    <div class="container z-10 px-6 mx-auto md:w-7/10 md:px-16">
+    <div class="container z-10 px-6 mx-auto size md:px-16">
       <slot/>
     </div>
   </div>
 </div>
+
+<style>
+  @screen md {
+    .size {
+      width: 65%;
+    }
+  }
+</style>
