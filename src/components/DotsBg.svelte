@@ -54,7 +54,7 @@
 
   @screen xxl {
     .size {
-      width: 65%;
+      width: 60%;
     }
   }
 </style>
