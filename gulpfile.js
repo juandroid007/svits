@@ -143,13 +143,13 @@ const dev = gulp.series(
 exports.dev = dev
 
 const prod = gulp.series(
-  // optimizeImages,
-  // generateWebpsDist,
-  // generateFavicons,
-  // injectFavicons,
-  // injectMetadata,
-  // cleanFaviconsHTML,
-  // updateServiceWorker,
+  optimizeImages,
+  generateWebpsDist,
+  generateFavicons,
+  injectFavicons,
+  injectMetadata,
+  cleanFaviconsHTML,
+  updateServiceWorker,
   generateSitemapXML,
 )
 exports.prod = prod
