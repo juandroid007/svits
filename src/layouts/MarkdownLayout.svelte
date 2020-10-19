@@ -7,6 +7,7 @@
   import { fly } from 'svelte/transition'
   import Logo from '../components/logo/Logo.svelte'
   import Title from '../components/logo/Title.svelte'
+  import { url } from '@roxi/routify/runtime'
 
   export let title
 </script>
@@ -63,7 +64,7 @@
 
 <div class="w-full py-6">
   <div class="flex flex-col items-center mb-6">
-    <a in:fly={{duration: 500, y: -20}} href="/" title="Go to home">
+    <a in:fly={{duration: 500, y: -20}} href={$url('/')} title="Go to home">
       <Logo width='128px'/>
     </a>
   </div>

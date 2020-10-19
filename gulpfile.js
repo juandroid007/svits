@@ -6,7 +6,7 @@ const gulp = require('gulp')
 const imagemin = require('gulp-imagemin')
 const inject = require('gulp-inject')
 const packageJson = require('./package.json')
-const svitsConfig = require('./svits.config')
+const svitsConfig = require('./svits.config.json')
 const rename = require('gulp-rename')
 const replace = require('gulp-string-replace')
 const webp = require('gulp-webp')
@@ -128,6 +128,9 @@ const generateSitemapXML = () => {
   smStream.pipe(createWriteStream('./dist/sitemap.xml'))
 
   svitsConfig.sitemapUrls.forEach(url => {
+    if (svitsConfig.routifyRuntimeConfig?.useHash) {
+      url = `/#${url}`
+    }
     smStream.write(url)
   })
 

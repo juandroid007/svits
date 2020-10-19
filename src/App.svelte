@@ -7,6 +7,8 @@
   import { isChangingPage } from '@roxi/routify/runtime'
   import NProgress from 'nprogress'
 
+  import svitsConfig from '../svits.config.json'
+
   NProgress.configure({
     // Pass in your configuration here, below is just how I like it
     // Full list: https://github.com/rstacruz/nprogress#configuration
@@ -26,7 +28,10 @@
 
   import { preferences } from './stores/preferences'
 
+  if (svitsConfig.routifyRuntimeConfig?.useHash) {
+    ! window.location.hash && window.location.replace(`${window.location.origin}/#${window.location.pathname}`)
+  }
   $: document.documentElement.classList.toggle('dark', $preferences.darkMode)
 </script>
 
-<Router {routes} />
+<Router {routes} config={{ ...svitsConfig?.routifyRuntimeConfig }} />
