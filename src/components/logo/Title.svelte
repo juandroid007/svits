@@ -27,7 +27,7 @@
   }
 
   .small {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .title span {

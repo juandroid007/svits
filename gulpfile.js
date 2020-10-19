@@ -6,6 +6,7 @@ const gulp = require('gulp')
 const imagemin = require('gulp-imagemin')
 const inject = require('gulp-inject')
 const packageJson = require('./package.json')
+const svitsConfig = require('./svits.config')
 const rename = require('gulp-rename')
 const replace = require('gulp-string-replace')
 const webp = require('gulp-webp')
@@ -44,13 +45,13 @@ const updateServiceWorker = () => {
 exports.updateServiceWorker = updateServiceWorker
 
 const generateFavicons = () => {
-  faviconsConfig.appName = packageJson.name
-  faviconsConfig.appShortName = packageJson.name
-  faviconsConfig.appDescription = packageJson.description
-  faviconsConfig.developerName = packageJson.author.name
-  faviconsConfig.developerURL = packageJson.author.url
+  faviconsConfig.appName = svitsConfig.name
+  faviconsConfig.appShortName = svitsConfig.shortName
+  faviconsConfig.appDescription = svitsConfig.description
+  faviconsConfig.developerName = svitsConfig.author.name
+  faviconsConfig.developerURL = svitsConfig.author.url
   faviconsConfig.version = packageJson.version
-  faviconsConfig.url = packageJson.homepage
+  faviconsConfig.url = svitsConfig.hostname
 
   return gulp.src('gulp/favicons/icon.*')
     .pipe(favicons.stream(faviconsConfig))
@@ -92,6 +93,18 @@ const injectFavicons = () => {
 }
 exports.injectFavicons = injectFavicons
 
+const metadataContent = (cfg) => {
+  return `<title>${cfg.name}</title>
+  <meta name="description" content="${cfg.description}" />`
+}
+
+const injectMetadata = () => {
+  return gulp.src('dist/index.html')
+    .pipe(replace('<!-- inject:metadata -->', metadataContent(svitsConfig)))
+    .pipe(gulp.dest('dist'))
+}
+exports.injectFavicons = injectFavicons
+
 const cleanFaviconsHTML = () => {
   return del([
     'dist/favicons/*.html',
@@ -117,6 +130,7 @@ const prod = gulp.series(
   generateWebpsDist,
   generateFavicons,
   injectFavicons,
+  injectMetadata,
   cleanFaviconsHTML,
   updateServiceWorker,
 )

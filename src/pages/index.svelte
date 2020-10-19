@@ -1,6 +1,5 @@
 <script>
-  import meta from '../meta.json'
-  import { updateAvailable } from '../sw/store'
+  import svitsConfig from '../../svits.config'
   import { preferences } from '../stores/preferences'
   import Button from '../components/Button.svelte'
   import Logo from '../components/logo/Logo.svelte'
@@ -13,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>Svits - A nice SPA stack</title>
+  <title>svitsConfig.name</title>
 </svelte:head>
 
 <div class="flex flex-col flex-grow px-4">
@@ -25,7 +24,7 @@
       <div class="text-center md:text-left">
         <Title animate />
       </div>
-      <p class="mb-4 text-justify">{meta.description}</p>
+      <p class="mb-4 text-justify">{svitsConfig.description}</p>
       <a class="text-blue-600 hover:underline" href="/features">View cool features -&gt</a>
 
       <div class="flex mt-4 -m-2">

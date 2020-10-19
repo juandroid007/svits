@@ -3,28 +3,19 @@ import {
   streamToPromise,
 } from 'sitemap'
 
-import * as packageJson from '../package.json'
+import config from '../svits.config'
 
 // More information here: https://www.npmjs.com/package/sitemap
-
-const urls = [
-  {
-    url: '/',
-  },
-  {
-    url: '/features',
-  }
-]
 
 export default (req, res) => {
   res.setHeader('Content-Type', 'application/xml')
 
   const sitemap = new SitemapStream({
-    hostname: packageJson.homepage,
+    hostname: config.hostname,
   })
 
   urls.forEach((url) => {
-    sitemap.write(url)
+    sitemap.write(config.sitemapUrls)
   })
 
   sitemap.end()

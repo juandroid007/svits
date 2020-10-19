@@ -9,6 +9,6 @@
 </script>
 
 <div class="my-4 text-center">
-  <Image src={src} alt={alt} class="w-full border border-gray-500 border-dashed rounded-xl"/>
+  <Image src={src} alt={alt} class="w-full border border-gray-500 border-dashed rounded-xl {_class}"/>
   <p class="mt-2">- {alt} -</p>
 </div>
