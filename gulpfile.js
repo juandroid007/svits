@@ -10,6 +10,8 @@ const svitsConfig = require('./svits.config')
 const rename = require('gulp-rename')
 const replace = require('gulp-string-replace')
 const webp = require('gulp-webp')
+const { SitemapStream, streamToPromise } = require('sitemap')
+const { createWriteStream } = require('fs')
 
 const updateServiceWorker = () => {
   const root = 'dist'
@@ -117,6 +119,21 @@ const optimizeImages = () => {
     .pipe(imagemin())
     .pipe(gulp.dest('dist'))
 }
+
+const generateSitemapXML = () => {
+  const smStream = new SitemapStream({
+    hostname: svitsConfig.hostname,
+  })
+
+  smStream.pipe(createWriteStream('./dist/sitemap.xml'))
+
+  svitsConfig.sitemapUrls.forEach(url => {
+    smStream.write(url)
+  })
+
+  return smStream.end()
+}
+
 exports.optimizeImages = optimizeImages
 
 const dev = gulp.series(
@@ -126,13 +143,14 @@ const dev = gulp.series(
 exports.dev = dev
 
 const prod = gulp.series(
-  optimizeImages,
-  generateWebpsDist,
-  generateFavicons,
-  injectFavicons,
-  injectMetadata,
-  cleanFaviconsHTML,
-  updateServiceWorker,
+  // optimizeImages,
+  // generateWebpsDist,
+  // generateFavicons,
+  // injectFavicons,
+  // injectMetadata,
+  // cleanFaviconsHTML,
+  // updateServiceWorker,
+  generateSitemapXML,
 )
 exports.prod = prod
 

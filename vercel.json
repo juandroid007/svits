@@ -1,8 +1,11 @@
 {
-  "routes": [
+  "builds": [
     {
-      "src": "/sitemap.xml",
-      "dest": "/api/sitemap.js"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ]
 }
