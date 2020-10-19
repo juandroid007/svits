@@ -1,6 +1,6 @@
 const del = require('del')
 const favicons = require('favicons')
-const faviconsConfig = require('./gulp/favicons/config.json')
+const faviconsConfig = require('./favicon.config')
 const fs = require('fs')
 const gulp = require('gulp')
 const imagemin = require('gulp-imagemin')
@@ -53,7 +53,7 @@ const generateFavicons = () => {
   faviconsConfig.version = packageJson.version
   faviconsConfig.url = svitsConfig.hostname
 
-  return gulp.src('gulp/favicons/icon.*')
+  return gulp.src('./favicon.*')
     .pipe(favicons.stream(faviconsConfig))
     .pipe(gulp.dest(`dist${faviconsConfig.path}`))
 }
