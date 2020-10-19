@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>svitsConfig.name</title>
+  <title>{svitsConfig.name}</title>
 </svelte:head>
 
 <div class="flex flex-col flex-grow px-4">
