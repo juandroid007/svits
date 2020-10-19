@@ -1,6 +1,6 @@
 const del = require('del')
 const favicons = require('favicons')
-const faviconsConfig = require('./favicon.config')
+const faviconsConfig = require('./favicons.config')
 const fs = require('fs')
 const gulp = require('gulp')
 const imagemin = require('gulp-imagemin')
