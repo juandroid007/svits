@@ -9,6 +9,7 @@
   import NProgress from 'nprogress'
 
   import OfflineBanner from './components/OfflineBanner.svelte'
+  import BannerUpdate from './components/BannerUpdate.svelte'
 
   import svitsConfig from '../svits.config.json'
 
@@ -37,16 +38,18 @@
   $: document.documentElement.classList.toggle('dark', $preferences.darkMode)
 
   function handleNetworkChange() {
-    $: $isOffline = !navigator.onLine
+    $isOffline = !navigator.onLine
   }
 
   import { onMount } from 'svelte'
 
   onMount(() => {
+    handleNetworkChange()
     window.addEventListener('online', handleNetworkChange)
     window.addEventListener('offline', handleNetworkChange)
   })
 </script>
 
 <OfflineBanner/>
+<BannerUpdate/>
 <Router {routes} config={{ ...svitsConfig?.routifyRuntimeConfig }} />
