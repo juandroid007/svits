@@ -1,6 +1,6 @@
 <script lang="ts">
   import './sw/sw'
-  import { isOffline } from './sw/store'
+  import { isOffline, updateAvailable } from './sw/store'
 
   import { Router } from '@roxi/routify/runtime'
   import { routes } from '../.routify/routes'
