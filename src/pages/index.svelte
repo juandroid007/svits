@@ -5,6 +5,7 @@
   import Logo from '../components/logo/Logo.svelte'
   import Title from '../components/logo/Title.svelte'
   import { url } from '@roxi/routify/runtime'
+  import { prefetch } from '@roxi/routify'
 
   import { fly } from 'svelte/transition'
 
@@ -26,7 +27,7 @@
         <Title animate />
       </div>
       <p class="mb-4 text-justify">{svitsConfig.description}</p>
-      <a class="text-blue-600 hover:underline" href={$url('./features')}>View cool features -&gt</a>
+      <a class="text-blue-600 hover:underline" use:prefetch href={$url('./features')}>View cool features -&gt</a>
 
       <div class="flex mt-4 -m-2">
         <Button
