@@ -44,10 +44,13 @@
   import { onMount } from 'svelte'
 
   onMount(() => {
-    handleNetworkChange()
     window.addEventListener('online', handleNetworkChange)
     window.addEventListener('offline', handleNetworkChange)
   })
+
+  $: if ($isOffline != undefined) {
+    handleNetworkChange()
+  }
 </script>
 
 <OfflineBanner/>

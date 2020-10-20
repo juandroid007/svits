@@ -5,7 +5,6 @@
   export let hasButton
   export let hasIcon
   export let toggle
-  export let wrap
 
   const dispatch = createEventDispatcher()
 </script>
