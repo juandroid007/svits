@@ -11,9 +11,6 @@
   "sitemapUrls": [
     {
       "url": "/"
-    },
-    {
-      "url": "/features"
     }
   ],
   "routifyRuntimeConfig": {

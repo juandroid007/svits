@@ -7,6 +7,7 @@ const imagemin = require('gulp-imagemin')
 const inject = require('gulp-inject')
 const packageJson = require('./package.json')
 const svitsConfig = require('./svits.config.json')
+const routerUrls = require('./.routify/urlIndex.json')
 const rename = require('gulp-rename')
 const replace = require('gulp-string-replace')
 const webp = require('gulp-webp')
@@ -125,11 +126,18 @@ const generateSitemapXML = () => {
     hostname: svitsConfig.hostname,
   })
 
+  const urls = routerUrls.map(url => {
+    const urlObj = { url: url === '/index' ? '/' : url.split('/index').join('') }
+    const configUrl = svitsConfig.sitemapUrls.filter(url => url.url === urlObj.url)[0]
+    return { ...urlObj, ...configUrl }
+  })
+  console.log(urls)
+
   smStream.pipe(createWriteStream('./dist/sitemap.xml'))
 
-  svitsConfig.sitemapUrls.forEach(url => {
+  urls.forEach(url => {
     if (svitsConfig.routifyRuntimeConfig && svitsConfig.routifyRuntimeConfig.useHash) {
-      url = `/#${url}`
+      url.url = `/#${url.url}`
     }
     smStream.write(url)
   })
