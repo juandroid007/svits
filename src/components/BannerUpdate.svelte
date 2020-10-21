@@ -5,7 +5,7 @@
     import { updateAvailable } from '../sw/store'
 
     let showing = false
-    $: showing = $updateAvailable
+    $: showing = !!$updateAvailable
 </script>
 
 <Banner
