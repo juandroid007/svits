@@ -53,6 +53,8 @@
   }
 </script>
 
+{$updateAvailable}
+
 <OfflineBanner/>
 <BannerUpdate/>
 <Router {routes} config={{ ...svitsConfig?.routifyRuntimeConfig }} />

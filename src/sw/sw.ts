@@ -1,7 +1,6 @@
 import { updateAvailable } from './store'
 
 if ('serviceWorker' in navigator) {
-  console.log(process.env)
   if (process.env.NODE_ENV === 'production') {
     navigator.serviceWorker.register('/service-worker.js')
     .then((registration) => {
