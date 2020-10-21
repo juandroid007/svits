@@ -27,7 +27,10 @@
         <Title animate />
       </div>
       <p class="mb-4 text-justify">{svitsConfig.description}</p>
-      <a class="text-blue-600 hover:underline" use:prefetch href={$url('./features')}>View cool features -&gt</a>
+      <div class="flex flex-wrap -m-2 sm:-m-4">
+        <a class="m-2 text-blue-600 sm:m-4 hover:underline" use:prefetch href={$url('./features')}>View cool features -&gt</a>
+        <a class="m-2 text-blue-600 sm:m-4 hover:underline" use:prefetch href={$url('./api')}>View api demo -&gt</a>
+      </div>
 
       <div class="flex mt-4 -m-2">
         <Button

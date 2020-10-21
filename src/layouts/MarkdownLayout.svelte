@@ -14,8 +14,8 @@
 
 <style>
   :global(.layout h1, .layout h2, .layout h3) {
+    @apply mb-4;
     @apply text-gray-800;
-    letter-spacing: 0.12em;
     font-weight: 400;
   }
 
