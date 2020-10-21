@@ -7,6 +7,7 @@ const regexesOnlineFirst = [
 const regexesOnlineOnly = [
   'localhost',
   'aws',
+  'https://kanye.rest/'
 ]
 
 const regexesCacheFirst = [
