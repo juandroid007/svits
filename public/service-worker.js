@@ -14,6 +14,7 @@ const regexesCacheFirst = [
   self.location.origin,
   'gstatic',
   'googleapis',
+  'unpkg',
   'cdn',
 ]
 
