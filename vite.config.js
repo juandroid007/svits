@@ -1,4 +1,4 @@
-// import path from 'path'
+import path from 'path'
 // import svite from 'svite'
 
 // const sviteConfig = {
@@ -7,9 +7,11 @@
 // }
 
 let config = {
-  // alias: {
-  //   '/src/': path.resolve(__dirname, './src'),
-  // },
+  alias: {
+    '~/': path.resolve(__dirname, './src'),
+    '~collections/': path.resolve(__dirname, './src/collections'),
+    '~components/': path.resolve(__dirname, './src/components'),
+  },
   // plugins: [
   //   svite(sviteConfig),
   // ],

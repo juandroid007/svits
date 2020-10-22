@@ -15,7 +15,7 @@
   export let description
 
   metatags.title = `Svits - ${title}`
-  //metatags.description = description || svitsConfig.description
+  metatags.description = description || svitsConfig.description
 </script>
 
 <style>

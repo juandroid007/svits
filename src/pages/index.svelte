@@ -8,9 +8,12 @@
   import { prefetch, metatags } from '@roxi/routify'
 
   import { fly } from 'svelte/transition'
+  // import { getCollection } from '../collections'
 
   let dark
   $: dark = $preferences.darkMode
+
+  // let articles = getCollection('posts', { field: 'title', order: 'cresc' }).elements
 
   metatags.title = svitsConfig.name
 </script>
