@@ -12,9 +12,8 @@ const regexesOnlineOnly = [
 
 const regexesCacheFirst = [
   self.location.origin,
-  'https://fonts.gstatic.com/',
-  'https://fonts.googleapis.com/',
-  'https://ajax.googleapis.com/',
+  'gstatic',
+  'googleapis',
   'cdn',
 ]
 

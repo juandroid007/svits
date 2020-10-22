@@ -6,14 +6,11 @@ title: Api demo
   import { ready } from '@roxi/routify'
   
   let quote
-  getData()
 
-  async function getData() {
-    const res = await fetch('https://api.kanye.rest/')
-    const data = await res.json()
-    quote = data.quote
-    $ready()
-  }
+  fetch('https://api.kanye.rest/')
+    .then(res => res.json())
+    .then(json => { quote = json.quote })
+    .finally($ready)
 </script>
 
 <svelte:head>
