@@ -5,21 +5,15 @@
   import Logo from '../components/logo/Logo.svelte'
   import Title from '../components/logo/Title.svelte'
   import { url } from '@roxi/routify/runtime'
-  import { prefetch, metatags, layout } from '@roxi/routify'
+  import { prefetch, metatags } from '@roxi/routify'
 
   import { fly } from 'svelte/transition'
 
   let dark
   $: dark = $preferences.darkMode
 
-  $: console.log($layout)
-
   metatags.title = svitsConfig.name
 </script>
-
-<svelte:head>
-  <title>{svitsConfig.name}</title>
-</svelte:head>
 
 <div class="flex flex-col flex-grow px-4">
   <div class="flex flex-col items-center py-6 my-auto -m-4 md:flex-row">
