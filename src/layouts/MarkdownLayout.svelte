@@ -7,9 +7,15 @@
   import { fly } from 'svelte/transition'
   import Logo from '../components/logo/Logo.svelte'
   import Title from '../components/logo/Title.svelte'
+  import { metatags } from '@roxi/routify'
   import { url } from '@roxi/routify/runtime'
+  import svitsConfig from '../../svits.config.json'
 
   export let title
+  export let description
+
+  metatags.title = `Svits - ${title}`
+  //metatags.description = description || svitsConfig.description
 </script>
 
 <style>
@@ -57,10 +63,6 @@
     @apply rounded-xl;
   }
 </style>
-
-<svelte:head>
-  <title>Svits - {title}</title>
-</svelte:head>
 
 <div class="w-full py-6">
   <div class="flex flex-col items-center mb-6">

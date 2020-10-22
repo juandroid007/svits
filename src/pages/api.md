@@ -6,18 +6,16 @@ title: Api demo
   import { ready } from '@roxi/routify'
   
   let quote
+  export let description
+  $: if (quote) {
+    description = `Random Kanye tweet: ${quote}`
+  }
 
   fetch('https://api.kanye.rest/')
     .then(res => res.json())
     .then(json => { quote = json.quote })
     .finally($ready)
 </script>
-
-<svelte:head>
-{#if quote}
-  <meta name="description" content="Random Kanye tweet: {quote}"/>
-{/if}
-</svelte:head>
 
 <div>
 {#if quote}
