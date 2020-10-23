@@ -58,7 +58,7 @@ const getUrls = (c, dir) => {
   return urls
 }
 
-const isFile = name => /\.md/.test(name)
+const isFile = name => /\.md/.test(name) && name !== 'index.md'
 
 const readContent = path => {
   const buffer = fs.readFileSync(path)

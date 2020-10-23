@@ -20,7 +20,7 @@ title: Api demo
 <div>
 {#if quote}
 
-## Kanye once said on Twitter:
+## Kanye once said:
 
 > {quote}
 

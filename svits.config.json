@@ -12,11 +12,6 @@
       "name": "posts",
       "path": "src/pages/blog",
       "url": "/blog"
-    },
-    {
-      "name": "test",
-      "path": "src/pages/test",
-      "url": "/blog"
     }
   ],
   "collectionsPath": "src/collections",
