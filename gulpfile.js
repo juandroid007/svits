@@ -147,7 +147,7 @@ const generateSitemapXML = () => {
   smStream.pipe(createWriteStream('./dist/sitemap.xml'))
 
   urls.forEach(url => {
-    if (svitsConfig.routifyRuntimeConfig && svitsConfig.routifyRuntimeConfig.useHash) {
+    if (svitsConfig.routifyRuntimeConfig && svitsConfig.routifyRuntimeConfig.useHash && url.url !== '/') {
       url.url = `/#${url.url}`
     }
     smStream.write(url)
@@ -155,6 +155,7 @@ const generateSitemapXML = () => {
 
   return smStream.end()
 }
+exports.generateSitemapXML = generateSitemapXML
 
 exports.optimizeImages = optimizeImages
 

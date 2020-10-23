@@ -17,9 +17,6 @@
   "collectionsPath": "src/collections",
   "hostname": "https://svits.netlify.app",
   "sitemapUrls": [
-    {
-      "url": "/"
-    }
   ],
   "routifyRuntimeConfig": {
     "useHash": false
