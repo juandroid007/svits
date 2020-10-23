@@ -106,7 +106,14 @@ const injectMetadata = () => {
     .pipe(replace('<!-- inject:metadata -->', metadataContent(svitsConfig)))
     .pipe(gulp.dest('dist'))
 }
-exports.injectFavicons = injectFavicons
+exports.injectMetadata = injectMetadata
+
+const replaceRobotsTXT = () => {
+  return gulp.src('dist/robots.txt')
+    .pipe(replace('{{host}}', svitsConfig.hostname))
+    .pipe(gulp.dest('dist'))
+}
+exports.replaceRobotsTXT = replaceRobotsTXT
 
 const cleanFaviconsHTML = () => {
   return del([
@@ -127,7 +134,11 @@ const generateSitemapXML = () => {
   })
 
   const urls = routerUrls.map(url => {
-    const urlObj = { url: url === '/index' ? '/' : url.split('/index').join('') }
+    const urlObj = {
+      url: url === '/index' ? '/' : url.split('/index').join(''),
+      changefreq: 'daily',
+      priority: 0.7,
+    }
     const configUrl = svitsConfig.sitemapUrls.filter(url => url.url === urlObj.url)[0]
     return { ...urlObj, ...configUrl }
   })
@@ -162,6 +173,7 @@ const prod = gulp.series(
   cleanFaviconsHTML,
   updateServiceWorker,
   generateSitemapXML,
+  replaceRobotsTXT,
 )
 exports.prod = prod
 
