@@ -24,7 +24,7 @@ export class Collection<T> {
   elements: T[]
 
   paginate(page_size: number, page_number: number): this {
-    this.elements.slice((page_number - 1) * page_size, page_number * page_size);
+    this.elements = this.elements.slice((page_number - 1) * page_size, page_number * page_size)
     return this
   }
 
@@ -37,9 +37,9 @@ export class Collection<T> {
         aa = +new Date(a[orderOptions.field])
         bb = +new Date(b[orderOptions.field])
         if (orderOptions.order == 'cresc') {
-          return bb - aa
-        } else {
           return aa - bb
+        } else {
+          return bb - aa
         }
       } else {
         if (orderOptions.order == 'cresc') {
