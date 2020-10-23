@@ -1,11 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { url } from '@roxi/routify/runtime'
+  import { metatags } from '@roxi/routify'
   import { fly } from 'svelte/transition'
   let visible = false
   onMount(() => {
     setTimeout(() => visible = true, 100)
   })
+  metatags.title = 'Svits - 404'
 </script>
 
 <style>
@@ -23,7 +25,7 @@
 </style>
 
 <svelte:head>
-  <title>Svits - 404</title>
+  <meta name="prerender-status-code" content="404">
 </svelte:head>
 
 <div class="relative h-screen">
